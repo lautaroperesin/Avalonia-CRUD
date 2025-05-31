@@ -1,0 +1,27 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaCRUD.Views.MenuView"
+        Title="Gestión de Carreras">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="🏠 Principal">
+                <MenuItem Header="🎓 Carreras" Click="OnCarrerasClick" />
+                <Separator/>
+            </MenuItem>
+            <MenuItem Header="⏻ Salir" Click="OnSalirClick"/>
+        </Menu>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
+            <TextBlock Text="Bienvenido al sistema de gestión de carreras"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Seleccione una opción del menú para continuar."
+                       FontSize="16"
+                       Foreground="Gray"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

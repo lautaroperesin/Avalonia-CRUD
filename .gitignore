@@ -1,0 +1,21 @@
+﻿# Rider
+.idea/
+*.sln.iml
+*.ReSharper/
+
+# Build
+bin/
+obj/
+
+# VS y archivos de usuario
+.vs/
+*.user
+*.suo
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+*.tmp

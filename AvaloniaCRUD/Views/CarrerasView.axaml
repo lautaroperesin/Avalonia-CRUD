@@ -1,0 +1,101 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:AvaloniaCRUD.ViewModels"
+        xmlns:viewModels="clr-namespace:AvaloniaCRUD.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+        x:Class="AvaloniaCRUD.Views.CarrerasView"
+        Title="CarrerasView"
+        x:DataType="viewModels:CarrerasViewModel">
+
+    <Design.DataContext>
+        <vm:CarrerasViewModel/>
+    </Design.DataContext>
+
+    <Grid Margin="16" RowDefinitions="Auto,*,Auto">
+
+        <!-- Título -->
+        <TextBlock Text="Gestión de Carreras"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Margin="0,0,0,24"
+                   HorizontalAlignment="Center"
+                   Grid.Row="0" />
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Carreras}"
+                  SelectedItem="{Binding CarreraSeleccionada, Mode=TwoWay}" 
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserResizeColumns="True"
+                  CanUserSortColumns="True"
+                  Margin="0,0,0,16">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="80" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="200" />
+                <DataGridTextColumn Header="Sigla" Binding="{Binding Sigla}" Width="120" />
+                <DataGridCheckBoxColumn Header="Eliminado" Binding="{Binding Eliminado}" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Formulario de alta/modificación -->
+        <Border Grid.Row="2" Background="#FFF6F6F6" CornerRadius="8" Padding="16">
+            <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                <!-- Nombre -->
+                <StackPanel>
+                    <TextBlock Text="Nombre" Margin="0,0,0,4" />
+                    <TextBox Width="200" Height="32" Text="{Binding Nombre, Mode=TwoWay}" />
+                </StackPanel>
+
+                <!-- Sigla -->
+                <StackPanel>
+                    <TextBlock Text="Sigla" Margin="0,0,0,4" />
+                    <TextBox Width="120" Height="32" Text="{Binding Sigla, Mode=TwoWay}" />
+                </StackPanel>
+
+                <!-- Eliminado -->
+                <StackPanel>
+                    <TextBlock Text="Eliminado" Margin="0,0,0,4" />
+                    <CheckBox Height="32" IsChecked="{Binding Eliminado, Mode=TwoWay}" />
+                </StackPanel>
+
+                <!-- Botones -->
+                <Button Width="96"
+                        Height="32"
+                        Margin="16,0,0,0"
+                        Command="{Binding AgregarCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="avares://AvaloniaCRUD/Assets/add.png" Width="24" Height="24" Margin="0,0,8,0"/>
+                            <TextBlock Text="Agregar" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Width="112"
+                        Height="32"
+                        Command="{Binding ModificarCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="avares://AvaloniaCRUD/Assets/edit.png" Width="24" Height="24" Margin="0,0,8,0"/>
+                            <TextBlock Text="Modificar" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Width="104"
+                        Height="32"
+                        Command="{Binding EliminarCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="avares://AvaloniaCRUD/Assets/delete.png" Width="24" Height="24" Margin="0,0,8,0"/>
+                            <TextBlock Text="Eliminar" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
