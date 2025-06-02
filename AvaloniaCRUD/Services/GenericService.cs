@@ -61,7 +61,7 @@ public class GenericService<T> : IGenericService<T> where T : class
         return JsonSerializer.Deserialize<T>(content, options);
     }
 
-    public async Task UpdateAsync(T? entity)
+    public async Task<bool> UpdateAsync(T? entity)
     {
         var idValue = entity.GetType().GetProperty("Id").GetValue(entity);
 
@@ -70,6 +70,8 @@ public class GenericService<T> : IGenericService<T> where T : class
         {
             throw new ApplicationException(response?.ToString());
         }
+        
+        return response.IsSuccessStatusCode;
     }
 
     public async Task DeleteAsync(int id)

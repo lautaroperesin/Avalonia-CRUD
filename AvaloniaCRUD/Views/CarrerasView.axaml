@@ -41,7 +41,7 @@
         </DataGrid>
 
         <!-- Formulario de alta/modificación -->
-        <Border Grid.Row="2" Background="#FFF6F6F6" CornerRadius="8" Padding="16">
+        <Border Grid.Row="2" Background="Blue" CornerRadius="8" Padding="16">
             <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
                 <!-- Nombre -->
                 <StackPanel>

@@ -1,15 +1,19 @@
-﻿namespace AvaloniaCRUD.Models;
+﻿using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-public class Carrera
+namespace AvaloniaCRUD.Models;
+
+public partial class Carrera : ObservableObject
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; } = string.Empty;
-    public string Sigla { get; set; } = string.Empty;
-    public bool Eliminado { get; set; } = false;
+    [ObservableProperty]
+    private int id;
 
+    [ObservableProperty]
+    private string nombre;
 
-    public override string ToString()
-    {
-        return Nombre;
-    }
+    [ObservableProperty]
+    private string sigla;
+
+    [ObservableProperty]
+    private bool eliminado;
 }
